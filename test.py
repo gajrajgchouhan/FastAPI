@@ -66,10 +66,10 @@ def test_create_bulk_task():
     }
     r = requests.post("http://localhost:8000/v1/tasks", json=js)
     assert r.status_code == 201
-    assert isinstance(r.json()[0]["id"], int)
-    assert isinstance(r.json()[1]["id"], int)
-    assert isinstance(r.json()[2]["id"], int)
-    assert len(r.json()) == 3
+    assert isinstance(r.json()["tasks"][0]["id"], int)
+    assert isinstance(r.json()["tasks"][1]["id"], int)
+    assert isinstance(r.json()["tasks"][2]["id"], int)
+    assert len(r.json()["tasks"]) == 3
 
 
 def test_delete_task():
